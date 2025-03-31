@@ -3,11 +3,12 @@
 function EgnimePrisonier() {
   return (
     <div>
-      <h1>
-        bonjour
-      </h1>
+      <header className="bg-black">
+      <p className="bg-white">Bonjour</p>
+      </header>
+      
     </div>
   )
 }
 
-export default EgnimePrisonier
+export default EgnimePrisonier;
