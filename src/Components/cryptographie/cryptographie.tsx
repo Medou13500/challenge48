@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useState} from "react";
 
 export default function DecryptMessage() {
     const encryptedMessage = "krndjhghodihxloohnrqrkd";
@@ -41,7 +41,7 @@ export default function DecryptMessage() {
             <h2 className="text-xl font-bold mb-2">Décryptage du message</h2>
 
             <p className="d-none text-md font-mono bg-gray-200 p-2 rounded mb-4">
-                Message chiffré : {encryptedMessage}
+                Message chiffré : vkhk f'hvw sdv oh erq frgh
             </p>
 
             {showHint1 && (
@@ -58,7 +58,7 @@ export default function DecryptMessage() {
 
             {showHint3 && (
                 <p className="text-sm text-gray-700 mb-2">
-                    🧩 Indice 3 : Pour décrypter, utilisez un décalage de {-shift} (ou {26-shift}).
+                    🧩 Indice 3 : Pour décrypter, utilisez un décalage de {-shift} (ou {26 - shift}).
                 </p>
             )}
             <input
@@ -77,6 +77,11 @@ export default function DecryptMessage() {
             </button>
 
             {result && <p className="mt-2 font-semibold">{result}</p>}
+            <div>
+                <p className="d-none text-md font-mono bg-gray-200 p-2 rounded mb-4">
+                    Message chiffré : {encryptedMessage}
+                </p>
+            </div>
         </div>
     );
 }
