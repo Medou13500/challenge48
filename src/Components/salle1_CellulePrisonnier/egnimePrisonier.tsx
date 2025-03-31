@@ -1,6 +1,6 @@
-import React from 'react'
 
-function egnimePrisonier() {
+
+function EgnimePrisonier() {
   return (
     <div>
       <h1>
@@ -10,4 +10,4 @@ function egnimePrisonier() {
   )
 }
 
-export default egnimePrisonier
+export default EgnimePrisonier
