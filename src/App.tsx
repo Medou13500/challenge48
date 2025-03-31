@@ -1,7 +1,7 @@
 import './App.css'
 import {Route, BrowserRouter as Router, Routes} from "react-router-dom";
 import Egnime3D from "./components/egnimes-3d/Egnime3D.tsx";
-import EgnimePrisonier from './components/salle1_CellulePrisonnier/EgnimePrisonier.tsx';
+import EgnimePrisonier from './components/salle1_CellulePrisonnier/egnimePrisonier.tsx';
 
 function App() {
   return (
