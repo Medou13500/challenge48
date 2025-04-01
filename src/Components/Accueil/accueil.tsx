@@ -16,9 +16,9 @@ function Accueil() {
                 <img src={logoAkatsuki} alt="Naruto Logo" style={{ height: '60px', width: '100px' }} />
                 <nav>
                     <a href="/Prisonier" className="mx-3 text-decoration-none text-white">La cellule du prisonnier</a>
-                    <a href="#" className="mx-3 text-decoration-none text-white">Énigme de Biju</a>
-                    <a href="#" className="mx-3 text-decoration-none text-white">Combat d'Illusion</a>
-                    <a href="#" className="mx-3 text-decoration-none text-white">Le défi de Pain</a>
+                    <a href="/cryptographie" className="mx-3 text-decoration-none text-danger">Énigme de Biju</a>
+                    <a href="/citation-naruto" className="mx-3 text-decoration-none text-danger">Combat d'Illusion</a>
+                    <a href="/blur" className="mx-3 text-decoration-none text-danger">Le défi de Pain</a>
                 </nav>
             </header>
             <main className="d-flex justify-content-center align-items-center" style={{ minHeight: '80vh' }}>
@@ -36,9 +36,9 @@ function Accueil() {
                         Pour progresser, il faut trouver des indices et utiliser ses connaissances sur Naruto.
                     </p>
                     <div className="text-center mt-3">
-                        <button className="btn btn-light btn-lg" style={{ backgroundColor: 'rgba(216, 4, 4, 0.84)', borderRadius: '20px', padding: '10px 30px', fontWeight: 'bold' }}>
+                        <a href="/Prisonier"><button className="btn btn-light btn-lg" style={{ backgroundColor: 'rgba(216, 4, 4, 0.84)', borderRadius: '20px', padding: '10px 30px', fontWeight: 'bold' }}>
                             Commencer le Jeu
-                        </button>
+                        </button></a>
                     </div>
                 </div>
             </main >
