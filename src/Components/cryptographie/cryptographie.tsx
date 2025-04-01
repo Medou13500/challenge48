@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import logoAkatsuki from "../../assets/img/logo-akatsuki.png";
 import { Link } from "react-router-dom";
 
 export default function DecryptMessage({ onSuccess }: { onSuccess: () => void }) {
