@@ -1,68 +1,72 @@
-import { useState, useEffect } from "react";
-import { images } from "../../data/image";
+import {useState, useEffect} from "react";
+import {images} from "../../data/image";
 import logoAkatsuki from "../../assets/img/logo-akatsuki.png";
 import styled from "styled-components";
+import {Link} from "react-router-dom";
 
 const NarutoContainer = styled.div`
-  background-image: linear-gradient(to bottom, #ff9d00, #ff7200);
-  min-height: 100vh;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  font-family: 'Ninja Naruto', 'Trebuchet MS', sans-serif;
+    background-image: linear-gradient(to bottom, #ff9d00, #ff7200);
+    min-height: 100vh;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    font-family: 'Ninja Naruto', 'Trebuchet MS', sans-serif;
 `;
 
 const NarutoCard = styled.div`
-  border: 4px solid #ff4500 !important;
-  border-radius: 20px !important;
-  box-shadow: 0 10px 25px rgba(255, 69, 0, 0.5) !important;
-  background-color: #ffefd5 !important;
-  overflow: hidden;
+    border: 4px solid #ff4500 !important;
+    border-radius: 20px !important;
+    box-shadow: 0 10px 25px rgba(255, 69, 0, 0.5) !important;
+    background-color: #ffefd5 !important;
+    overflow: hidden;
 `;
 
 const NarutoCardHeader = styled.div`
-  background: linear-gradient(to right, #ff4500, #ff8c00) !important;
-  color: #fff !important;
-  text-shadow: 2px 2px 4px #000;
-  font-weight: bold;
-  border-bottom: 3px solid #ff8c00;
+    background: linear-gradient(to right, #ff4500, #ff8c00) !important;
+    color: #fff !important;
+    text-shadow: 2px 2px 4px #000;
+    font-weight: bold;
+    border-bottom: 3px solid #ff8c00;
 `;
 
 const NarutoButton = styled.button`
-  background: linear-gradient(to right, #ff4500, #ff8c00) !important;
-  border-color: #ff4500 !important;
-  font-weight: bold;
-  &:hover {
-    background: linear-gradient(to right, #ff8c00, #ff4500) !important;
-    transform: scale(1.05);
-  }
+    background: linear-gradient(to right, #ff4500, #ff8c00) !important;
+    border-color: #ff4500 !important;
+    font-weight: bold;
+
+    &:hover {
+        background: linear-gradient(to right, #ff8c00, #ff4500) !important;
+        transform: scale(1.05);
+    }
 `;
 
 const HintBox = styled.div`
-  background-color: #ffdab9 !important;
-  border: 2px solid #ff8c00 !important;
-  color: #333 !important;
+    background-color: #ffdab9 !important;
+    border: 2px solid #ff8c00 !important;
+    color: #333 !important;
 `;
 
 const ProgressBarContainer = styled.div`
-  background-color: #ffdab9 !important;
-  border: 1px solid #ff4500;
+    background-color: #ffdab9 !important;
+    border: 1px solid #ff4500;
 `;
 
 const ProgressBar = styled.div`
-  background: linear-gradient(to right, #ff4500, #ff8c00) !important;
+    background: linear-gradient(to right, #ff4500, #ff8c00) !important;
 `;
 
 const NarutoInput = styled.input`
-  border: 2px solid #ff8c00 !important;
-  &:focus {
-    box-shadow: 0 0 0 0.25rem rgba(255, 140, 0, 0.25) !important;
-    border-color: #ff4500 !important;
-  }
+    border: 2px solid #ff8c00 !important;
+
+    &:focus {
+        box-shadow: 0 0 0 0.25rem rgba(255, 140, 0, 0.25) !important;
+        border-color: #ff4500 !important;
+    }
 `;
 
 export default function CharacterQuiz() {
     const [currentCharacter, setCurrentCharacter] = useState(0);
     const [inputValue, setInputValue] = useState("");
+    const [counter, setCounter] = useState(0);
     const [attempts, setAttempts] = useState(0);
     const [blurAmount, setBlurAmount] = useState(20);
     const [result, setResult] = useState("");
@@ -82,7 +86,15 @@ export default function CharacterQuiz() {
         const character = images[currentCharacter];
 
         if (inputValue.toLowerCase() === character.name.toLowerCase()) {
-            setResult(`✅ Bravo ! C'est bien ${character.name} !`);
+
+            const newCounter = counter + 1;
+            setCounter(newCounter);
+
+            if (newCounter >= 5) {
+                setResult(`🏆 FÉLICITATIONS ! Vous avez trouvé 5 personnages ! Vous avez gagné !`);
+            } else {
+                setResult(`✅ Bravo ! C'est bien ${character.name} ! (${newCounter}/5)`);
+            }
             setGameOver(true);
             setBlurAmount(0);
         } else {
@@ -124,6 +136,13 @@ export default function CharacterQuiz() {
         setImageLoaded(false);
     };
 
+    const handleResetGame = () => {
+        // Réinitialise tout, y compris le compteur
+        handleNewGame();
+        setCounter(0);
+    }
+
+
     if (images.length === 0) {
         return (
             <NarutoContainer className="container mt-5">
@@ -138,16 +157,21 @@ export default function CharacterQuiz() {
 
     return (
         <>
-            <header className="d-flex justify-content-between align-items-center p-3" style={{ backgroundColor: 'rgba(36, 35, 35, 0.8)' }}>
-                <img src={logoAkatsuki} alt="Naruto Logo" style={{ height: '60px', width: '100px' }} />
+            <header className="d-flex justify-content-between align-items-center p-3"
+                    style={{backgroundColor: 'rgba(36, 35, 35, 0.8)'}}>
+                <img src={logoAkatsuki} alt="Naruto Logo" style={{height: '60px', width: '100px'}}/>
                 <nav>
-                    <a href="#" className="mx-3 text-decoration-none text-white">La cellule du prisonnier</a>
-                    <a href="#" className="mx-3 text-decoration-none text-white">Énigme de Biju</a>
-                    <a href="#" className="mx-3 text-decoration-none text-white">Combat d'Illusion</a>
-                    <a href="#" className="mx-3 text-decoration-none text-white">Le défi de Pain</a>
+                    <a href="/prisionnier" className="mx-3 text-decoration-none text-white">La cellule du prisonnier</a>
+                    <a href="/crytographie" className="mx-3 text-decoration-none text-white">Énigme de Biju</a>
+                    <a href="/illusion" className="mx-3 text-decoration-none text-white">Combat d'Illusion</a>
+                    <a href="/citation" className="mx-3 text-decoration-none text-white">Le défi de Pain</a>
                 </nav>
             </header>
-
+            <div className="text-center mt-3 mb-2">
+                <span className="badge fs-6" style={{backgroundColor: '#ff8c00', padding: '8px 15px'}}>
+                    Personnages trouvés : {counter}/5
+                </span>
+            </div>
             <NarutoContainer className="d-flex align-items-center justify-content-center vw-100 m-0">
                 <div className="row justify-content-center w-100">
                     <div className="col-12 col-md-8 col-lg-6">
@@ -179,12 +203,12 @@ export default function CharacterQuiz() {
                                     </div>
                                 </div>
 
-                                <ProgressBarContainer className="progress mb-4" style={{ height: "12px" }}>
+                                <ProgressBarContainer className="progress mb-4" style={{height: "12px"}}>
                                     <ProgressBar
                                         className="progress-bar"
                                         role="progressbar"
-                                        style={{ width: `${(1 - blurAmount/20) * 100}%` }}
-                                        aria-valuenow={(1 - blurAmount/20) * 100}
+                                        style={{width: `${(1 - blurAmount / 20) * 100}%`}}
+                                        aria-valuenow={(1 - blurAmount / 20) * 100}
                                         aria-valuemin={0}
                                         aria-valuemax={100}
                                     ></ProgressBar>
@@ -193,7 +217,8 @@ export default function CharacterQuiz() {
                                 {showHint && (
                                     <HintBox className="alert mb-4">
                                         <p className="mb-0">
-                                            <span className="fw-bold">Indice {currentHint + 1}:</span> {character.hints[currentHint]}
+                                            <span
+                                                className="fw-bold">Indice {currentHint + 1}:</span> {character.hints[currentHint]}
                                         </p>
                                     </HintBox>
                                 )}
@@ -220,33 +245,49 @@ export default function CharacterQuiz() {
                                 )}
 
                                 {result && (
-                                    <div className={`alert text-center ${result.startsWith('✅') ? 'alert-success' : 'alert-danger'}`}
-                                         style={{
-                                             backgroundColor: result.startsWith('✅') ? '#c8e6c9' : '#ffccbc',
-                                             borderColor: result.startsWith('✅') ? '#4caf50' : '#ff5722',
-                                             color: '#333'
-                                         }}>
+                                    <div
+                                        className={`alert text-center ${result.startsWith('✅') ? 'alert-success' : 'alert-danger'}`}
+                                        style={{
+                                            backgroundColor: result.startsWith('✅') ? '#c8e6c9' : '#ffccbc',
+                                            borderColor: result.startsWith('✅') ? '#4caf50' : '#ff5722',
+                                            color: '#333'
+                                        }}>
                                         {result}
                                     </div>
                                 )}
 
                                 {!gameOver && attempts > 0 && (
                                     <div className="text-center text-muted small mt-2">
-                                        Essais: <span className="badge" style={{ backgroundColor: '#ff8c00' }}>{attempts} / {character.hints.length + 2}</span>
+                                        Essais: <span className="badge"
+                                                      style={{backgroundColor: '#ff8c00'}}>{attempts} / {character.hints.length + 2}</span>
                                     </div>
                                 )}
 
                                 {gameOver && (
                                     <div className="text-center mt-3">
                                         <NarutoButton
-                                            className="btn btn-lg"
+                                            className="btn btn-lg me-2"
                                             onClick={handleNewGame}
                                         >
                                             <i className="bi bi-arrow-repeat me-2"></i>
-                                            Nouvelle partie
+                                            Personnage suivant
                                         </NarutoButton>
+
+                                        {counter >= 5 && (
+                                            <NarutoButton
+                                                className="btn btn-lg ms-2"
+                                                onClick={handleResetGame}
+                                                style={{backgroundColor: '#ff4500 !important'}}
+                                            >
+                                                <i className="bi bi-trophy me-2"></i>
+                                                <Link to="/citation" className="text-white">
+                                                    Salle suivante
+                                                </Link>
+                                            </NarutoButton>
+                                        )}
                                     </div>
                                 )}
+
                             </div>
                         </NarutoCard>
                     </div>
