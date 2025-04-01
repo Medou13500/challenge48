@@ -51,7 +51,7 @@ export const images = [
     },
     {
         id: 6,
-        image: "https://staticg.sportskeeda.com/editor/2022/03/8b4b0-16478049972944-1920.jpg",
+        image: "https://preview.redd.it/ikt8zb3eny6d1.jpeg?auto=webp&s=61e200b86543b883d3904494e42cc1498f6193da",
         name: "Itachi",
         hints: [
             "Il est le frère aîné de Sasuke",
@@ -61,7 +61,7 @@ export const images = [
     },
     {
         id: 7,
-        image: "https://static.wikia.nocookie.net/naruto/images/c/c3/Hinata.png",
+        image: "https://seakoff.com/cdn/shop/articles/Hinata_Hyuga.jpg?v=1719014103",
         name: "Hinata",
         hints: [
             "Elle appartient au clan Hyuga",
@@ -71,7 +71,7 @@ export const images = [
     },
     {
         id: 8,
-        image: "https://sm.ign.com/t/ign_fr/screenshot/default/pain-les-chemins-de-la-douleur_6br6.1280.jpg",
+        image: "https://preview.redd.it/y8xbcb5tiooa1.jpg?width=640&crop=smart&auto=webp&s=a0fbf3943a106920a6308fc03199a4a42469bfa1",
         name: "Pain",
         hints: [
             "Il est le chef de l'Akatsuki",
@@ -81,7 +81,7 @@ export const images = [
     },
     {
         id: 9,
-        image: "https://static.wikia.nocookie.net/naruto/images/4/40/Gaara_Part_II.png",
+        image: "https://preview.redd.it/u3kz1tuevfc11.jpg?auto=webp&s=00cd56b0da5989ee8975059e3c1f5bd3ee839e0d",
         name: "Gaara",
         hints: [
             "Il est le Kazekage du village de Suna",
@@ -91,7 +91,7 @@ export const images = [
     },
     {
         id: 10,
-        image: "https://sm.ign.com/ign_fr/screenshot/default/ob-8d06bb-naruto-shippuden-477-1080p-mkv-snapshot-08-25-2016-0_x7dq.jpg",
+        image: "https://www.japanfm.fr/wp-content/uploads/2024/04/obito-naruto-scaled.jpg",
         name: "Obito",
         hints: [
             "Il a prétendu être Madara Uchiha pendant longtemps",
@@ -101,7 +101,7 @@ export const images = [
     },
     {
         id: 11,
-        image: "https://static.wikia.nocookie.net/naruto/images/3/31/Tsunade_Infobox.png",
+        image: "https://cdn.shopify.com/s/files/1/0046/2779/1960/files/tsunade_senju.jpg?v=1584796493",
         name: "Tsunade",
         hints: [
             "Elle est la Cinquième Hokage",
@@ -111,7 +111,7 @@ export const images = [
     },
     {
         id: 12,
-        image: "https://naruto-official.com/common/images/jp/chara/chara_detail_orochimaru01.png",
+        image: "https://cdn.shopify.com/s/files/1/0046/2779/1960/files/orochimaru_sannin.jpg?v=1584794368",
         name: "Orochimaru",
         hints: [
             "Il est l'un des trois ninjas légendaires",
@@ -121,7 +121,7 @@ export const images = [
     },
     {
         id: 13,
-        image: "https://static.wikia.nocookie.net/naruto/images/5/5c/Rock_Lee_Part_II.png",
+        image: "https://preview.redd.it/ecsfy81ndfs11.jpg?auto=webp&s=1f2b7adce3733a72c0b0392dd8597194b249505c",
         name: "Rock Lee",
         hints: [
             "Il ne peut utiliser ni ninjutsu ni genjutsu",
@@ -131,7 +131,7 @@ export const images = [
     },
     {
         id: 14,
-        image: "https://static.wikia.nocookie.net/naruto/images/2/21/Neji_Part_II.png",
+        image: "https://preview.redd.it/hdwbyzx6nvda1.jpg?width=640&crop=smart&auto=webp&s=066c89456c1c2054af61ac744c8fac2a78619ade",
         name: "Neji",
         hints: [
             "Il appartient à la branche secondaire du clan Hyuga",
@@ -141,7 +141,7 @@ export const images = [
     },
     {
         id: 15,
-        image: "https://static.wikia.nocookie.net/naruto/images/6/64/Shikamaru_Part_II.png",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSmc3KIjkCgVSSouLDVwrhYx6jARmd-vAnKg&s",
         name: "Shikamaru",
         hints: [
             "Il est considéré comme un génie stratégique",
@@ -151,7 +151,7 @@ export const images = [
     },
     {
         id: 16,
-        image: "https://static.wikia.nocookie.net/naruto/images/8/81/Kiba_Inuzuka_part_2.png",
+        image: "https://preview.redd.it/8m7fjpk14xod1.jpeg?auto=webp&s=5e780c986d0c99602f02732dc8eb01c53ef4b30f",
         name: "Kiba",
         hints: [
             "Il appartient au clan Inuzuka",
@@ -161,7 +161,7 @@ export const images = [
     },
     {
         id: 17,
-        image: "https://static.wikia.nocookie.net/naruto/images/8/8a/Choji_Part_2.png",
+        image: "https://www.nautiljon.com/images/perso/00/22/chouji_akimichi_622.webp",
         name: "Choji",
         hints: [
             "Il appartient au clan Akimichi",
@@ -171,7 +171,7 @@ export const images = [
     },
     {
         id: 18,
-        image: "https://static.wikia.nocookie.net/naruto/images/a/a5/Ino_Part_II.png",
+        image: "https://www.univers-otaku.com/wp-content/uploads/2021/09/Naruto-Ino-yeux.jpg",
         name: "Ino",
         hints: [
             "Elle appartient au clan Yamanaka",
@@ -181,7 +181,7 @@ export const images = [
     },
     {
         id: 19,
-        image: "https://static.wikia.nocookie.net/naruto/images/2/27/Shino_timeskip.png",
+        image: "https://cdn.shopify.com/s/files/1/0046/2779/1960/files/aburame_shino.jpg?v=1583450134",
         name: "Shino",
         hints: [
             "Il appartient au clan Aburame",
@@ -191,7 +191,7 @@ export const images = [
     },
     {
         id: 20,
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/AMG14_cosplayer_of_Minato_Namikaze_from_Naruto_20140809.jpg/1223px-AMG14_cosplayer_of_Minato_Namikaze_from_Naruto_20140809.jpg",
+        image: "https://pm1.aminoapps.com/7315/56be14f186229049594b1e4ce854917afb0cd582r1-1440-1080v2_00.jpg",
         name: "Minato",
         hints: [
             "Il est le Quatrième Hokage",

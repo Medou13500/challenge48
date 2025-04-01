@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import { images } from "../../data/image";
-import logoAkatsuki from "../../assets/img/logo-akatsuki.png";
+import logoAkatsuki from "../../assets/img/akastuki.png";
 import styled from "styled-components";
 
-// Composants stylisés pour le thème Naruto
 const NarutoContainer = styled.div`
   background-image: linear-gradient(to bottom, #ff9d00, #ff7200);
   min-height: 100vh;
@@ -65,7 +64,7 @@ export default function CharacterQuiz() {
     const [currentCharacter, setCurrentCharacter] = useState(0);
     const [inputValue, setInputValue] = useState("");
     const [attempts, setAttempts] = useState(0);
-    const [blurAmount, setBlurAmount] = useState(20); // Initial blur value (px)
+    const [blurAmount, setBlurAmount] = useState(20);
     const [result, setResult] = useState("");
     const [gameOver, setGameOver] = useState(false);
     const [showHint, setShowHint] = useState(false);
@@ -139,7 +138,6 @@ export default function CharacterQuiz() {
 
     return (
         <>
-            {/* Le header reste inchangé comme demandé */}
             <header className="d-flex justify-content-between align-items-center p-3" style={{ backgroundColor: 'rgba(36, 35, 35, 0.8)' }}>
                 <img src={logoAkatsuki} alt="Naruto Logo" style={{ height: '60px', width: '100px' }} />
                 <nav>
@@ -150,7 +148,7 @@ export default function CharacterQuiz() {
                 </nav>
             </header>
 
-            <NarutoContainer className="container d-flex align-items-center justify-content-center">
+            <NarutoContainer className="d-flex align-items-center justify-content-center vw-100 m-0">
                 <div className="row justify-content-center w-100">
                     <div className="col-12 col-md-8 col-lg-6">
                         <NarutoCard className="card border-0 shadow">
