@@ -7,7 +7,6 @@ import CharacterQuiz from "./Components/blur-image/Blur.tsx";
 
 function App() {
   return (
-
     <Router>
         <Routes>
             <Route path="/cryptographie" element={<DecryptMessage/>}/>

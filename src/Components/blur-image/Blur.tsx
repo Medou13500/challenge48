@@ -5,14 +5,13 @@ export default function CharacterQuiz() {
     const [currentCharacter, setCurrentCharacter] = useState(0);
     const [inputValue, setInputValue] = useState("");
     const [attempts, setAttempts] = useState(0);
-    const [blurAmount, setBlurAmount] = useState(20); // Initial blur value (px)
+    const [blurAmount, setBlurAmount] = useState(20);
     const [result, setResult] = useState("");
     const [gameOver, setGameOver] = useState(false);
     const [showHint, setShowHint] = useState(false);
     const [currentHint, setCurrentHint] = useState(0);
     const [imageLoaded, setImageLoaded] = useState(false);
 
-    // Sélectionne un personnage aléatoire au chargement du composant
     useEffect(() => {
         const randomIndex = Math.floor(Math.random() * images.length);
         setCurrentCharacter(randomIndex);
@@ -30,7 +29,6 @@ export default function CharacterQuiz() {
         } else {
             setAttempts(attempts + 1);
 
-            // Réduire le flou à chaque tentative
             const newBlurAmount = Math.max(0, blurAmount - 4);
             setBlurAmount(newBlurAmount);
 
@@ -67,7 +65,6 @@ export default function CharacterQuiz() {
         setImageLoaded(false);
     };
 
-    // S'assurer qu'on a bien un personnage sélectionné
     if (images.length === 0) {
         return (
             <div className="container mt-5">
@@ -90,7 +87,6 @@ export default function CharacterQuiz() {
                         </div>
 
                         <div className="card-body">
-                            {/* Image container */}
                             <div className="text-center mb-4">
                                 {!imageLoaded && (
                                     <div className="spinner-border text-primary" role="status">
@@ -112,7 +108,6 @@ export default function CharacterQuiz() {
                                 </div>
                             </div>
 
-                            {/* Progress bar */}
                             <div className="progress mb-4" style={{ height: "8px" }}>
                                 <div
                                     className="progress-bar bg-success"
@@ -124,7 +119,6 @@ export default function CharacterQuiz() {
                                 ></div>
                             </div>
 
-                            {/* Hint */}
                             {showHint && (
                                 <div className="alert alert-warning mb-4">
                                     <p className="mb-0">
@@ -133,7 +127,6 @@ export default function CharacterQuiz() {
                                 </div>
                             )}
 
-                            {/* Input field */}
                             {!gameOver && (
                                 <div className="input-group mb-3">
                                     <input
@@ -155,21 +148,18 @@ export default function CharacterQuiz() {
                                 </div>
                             )}
 
-                            {/* Result message */}
                             {result && (
                                 <div className={`alert ${result.startsWith('✅') ? 'alert-success' : 'alert-danger'} text-center`}>
                                     {result}
                                 </div>
                             )}
 
-                            {/* Attempts counter */}
                             {!gameOver && attempts > 0 && (
                                 <div className="text-center text-muted small mt-2">
                                     Essais: <span className="badge bg-secondary">{attempts} / {character.hints.length + 2}</span>
                                 </div>
                             )}
 
-                            {/* New game button */}
                             {gameOver && (
                                 <div className="text-center mt-3">
                                     <button
