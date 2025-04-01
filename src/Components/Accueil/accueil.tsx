@@ -15,7 +15,7 @@ function Accueil() {
             <header className="d-flex justify-content-between align-items-center p-3" style={{ backgroundColor: 'rgba(36, 35, 35, 0.8)' }}>
                 <img src={logoAkatsuki} alt="Naruto Logo" style={{ height: '60px', width: '100px' }} />
                 <nav>
-                    <a href="#" className="mx-3 text-decoration-none text-white">La cellule du prisonnier</a>
+                    <a href="/Prisonier" className="mx-3 text-decoration-none text-white">La cellule du prisonnier</a>
                     <a href="#" className="mx-3 text-decoration-none text-white">Énigme de Biju</a>
                     <a href="#" className="mx-3 text-decoration-none text-white">Combat d'Illusion</a>
                     <a href="#" className="mx-3 text-decoration-none text-white">Le défi de Pain</a>
