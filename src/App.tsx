@@ -16,8 +16,10 @@ function App() {
         <Route path="/blur" element={<CharacterQuiz />} />
         <Route path="/Prisonier" element={<EgnimePrisonier />} />
       </Routes>
+
     </Router>
   )
 }
 
-export default App
+export default App;
+
