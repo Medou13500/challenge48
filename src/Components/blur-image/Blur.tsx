@@ -161,10 +161,10 @@ export default function CharacterQuiz() {
                     style={{backgroundColor: 'rgba(36, 35, 35, 0.8)'}}>
                 <img src={logoAkatsuki} alt="Naruto Logo" style={{height: '60px', width: '100px'}}/>
                 <nav>
-                    <a href="#" className="mx-3 text-decoration-none text-white">La cellule du prisonnier</a>
-                    <a href="#" className="mx-3 text-decoration-none text-white">Énigme de Biju</a>
-                    <a href="#" className="mx-3 text-decoration-none text-white">Combat d'Illusion</a>
-                    <a href="#" className="mx-3 text-decoration-none text-white">Le défi de Pain</a>
+                    <a href="/prisionnier" className="mx-3 text-decoration-none text-white">La cellule du prisonnier</a>
+                    <a href="/crytographie" className="mx-3 text-decoration-none text-white">Énigme de Biju</a>
+                    <a href="/illusion" className="mx-3 text-decoration-none text-white">Combat d'Illusion</a>
+                    <a href="/citation" className="mx-3 text-decoration-none text-white">Le défi de Pain</a>
                 </nav>
             </header>
             <div className="text-center mt-3 mb-2">
