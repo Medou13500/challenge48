@@ -1,5 +1,6 @@
 import {useState} from "react";
 import logoAkatsuki from "../../assets/img/logo-akatsuki.png";
+import {Link} from "react-router-dom";
 
 export default function DecryptMessage() {
     const encryptedMessage = "krndjhghodihxloohnrqrkd";
@@ -51,18 +52,16 @@ export default function DecryptMessage() {
 
     return (
         <>
-            {/* Header conservé tel quel */}
             <header className="d-flex justify-content-between align-items-center p-3" style={{ backgroundColor: 'rgba(36, 35, 35, 0.8)' }}>
                 <img src={logoAkatsuki} alt="Naruto Logo" style={{ height: '60px', width: '100px' }} />
                 <nav>
-                    <a href="#" className="mx-3 text-decoration-none text-white">La cellule du prisonnier</a>
-                    <a href="#" className="mx-3 text-decoration-none text-white">Énigme de Biju</a>
-                    <a href="#" className="mx-3 text-decoration-none text-white">Combat d'Illusion</a>
-                    <a href="#" className="mx-3 text-decoration-none text-white">Le défi de Pain</a>
+                    <a href="/prisionnier" className="mx-3 text-decoration-none text-white">La cellule du prisonnier</a>
+                    <a href="/crytographie" className="mx-3 text-decoration-none text-white">Énigme de Biju</a>
+                    <a href="/illusion" className="mx-3 text-decoration-none text-white">Combat d'Illusion</a>
+                    <a href="/citation" className="mx-3 text-decoration-none text-white">Le défi de Pain</a>
                 </nav>
             </header>
 
-            {/* Corps avec style Naruto */}
             <div className="vh-100 " style={{
                 backgroundImage: 'url(https://i.pinimg.com/736x/46/04/eb/4604eb26f14c81d5fb36b4a0bef129de.jpg)',
                 backgroundSize: 'cover',
@@ -247,7 +246,9 @@ export default function DecryptMessage() {
                                             }}
                                         >
                                             <i className="bi bi-arrow-repeat me-2"></i>
-                                            Recommencer
+                                            <Link to="/illusion" className="text-decoration-none text-white" style={{textShadow: '2px 2px 4px #000'}}>
+                                                Salle suivante
+                                            </Link>
                                         </button>
                                     </div>
                                 )}
