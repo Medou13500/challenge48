@@ -81,7 +81,7 @@ export default function CharacterQuiz({ onSuccess }: { onSuccess: () => void }) 
   useEffect(() => {
     if (isCompleted) {
       const progression = JSON.parse(localStorage.getItem("progression") || "[true, false, false, false]");
-      progression[2] = true; // Débloque la prochaine salle
+      progression[2] = true;
       localStorage.setItem("progression", JSON.stringify(progression));
       onSuccess();
     }
@@ -89,7 +89,6 @@ export default function CharacterQuiz({ onSuccess }: { onSuccess: () => void }) 
 
   const handleGuess = () => {
     if (!inputValue.trim()) return;
-
     const character = images[currentCharacter];
 
     if (inputValue.toLowerCase() === character.name.toLowerCase()) {
@@ -105,7 +104,6 @@ export default function CharacterQuiz({ onSuccess }: { onSuccess: () => void }) 
       });
     } else {
       setAttempts((prev) => prev + 1);
-
       const newBlurAmount = Math.max(0, blurAmount - 4);
       setBlurAmount(newBlurAmount);
 
@@ -125,7 +123,6 @@ export default function CharacterQuiz({ onSuccess }: { onSuccess: () => void }) 
         setResult(`❌ Ce n'est pas ${inputValue}. Dernière chance !`);
       }
     }
-
     setInputValue("");
   };
 
@@ -250,10 +247,7 @@ export default function CharacterQuiz({ onSuccess }: { onSuccess: () => void }) 
 
                 {!gameOver && attempts > 0 && (
                   <div className="text-center text-muted small mt-2">
-                    Essais :{" "}
-                    <span className="badge" style={{ backgroundColor: "#ff8c00" }}>
-                      {attempts} / {character.hints.length + 2}
-                    </span>
+                    Essais : <span className="badge" style={{ backgroundColor: "#ff8c00" }}>{attempts} / {character.hints.length + 2}</span>
                   </div>
                 )}
 
