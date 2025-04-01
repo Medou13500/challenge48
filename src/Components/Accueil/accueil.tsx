@@ -23,10 +23,11 @@ function Accueil() {
             </header>
             <main className="d-flex justify-content-center align-items-center" style={{ minHeight: '80vh' }}>
                 <div className="card p-5" style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)', borderRadius: '10px', maxWidth: '600px' }}>
-                    <p className="lead">
+                    <p className="lead text-center" style={{ fontWeight: 'bold' }}>
                         Tu es un jeune ninja pris au piège dans un repaire de l'Akatsuki.
                         Pour t'échapper, tu dois résoudre plusieurs énigmes basées sur l'univers de Naruto.
                         Mais attention, si tu te trompes trop de fois, Pain pourrait venir en personne t'arrêter !
+
                     </p>
                     <p>
                         Résous toutes les énigmes pour trouver la sortie avant la fin du temps imparti.

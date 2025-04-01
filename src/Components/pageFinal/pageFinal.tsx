@@ -23,8 +23,11 @@ function PageFinal() {
             </header>
             <main className="d-flex justify-content-center align-items-center" style={{ minHeight: '80vh' }}>
                 <div className="card p-5" style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)', borderRadius: '10px', maxWidth: '600px' }}>
-                    <p className="lead">
-                        Bravo!! tu as réussi à t'échapper du repaire de l'Akatsuki !
+                    <h1 className="display-4 text-center" style={{ color: 'rgba(216, 4, 4, 0.84)' }}>
+                        Bravo!!!
+                    </h1>
+                    <p className="lead text-center">
+                        Tu as réussi à t'échapper du repaire de l'Akatsuki!
                     </p>
 
                     <div className="text-center mt-3">
