@@ -101,6 +101,16 @@ function EgnimePrisonier({ onSuccess }: { onSuccess: () => void }) {
           className="position-relative z-2 bg-white text-dark p-4 rounded shadow text-center"
           style={{ maxWidth: "500px" }}
         >
+          <p className="mb-0">Kakashi a été enlevé. Traîné dans l’ombre par les ninjas d’Orochimaru. Une cellule... scellée par un jutsu interdit. Personne n’a pu l’approcher.
+            je suis devant la cellule de Kakashi et je cri,
+            KATON ! BOOOOULE DE FEEEEU SUUUPRÊME !!! </p>
+          <p className="mb-2">
+            🔥 <strong>Consigne :</strong> Les invocations ont été mélangées.
+            Tu dois retrouver l'ordre exact pour libérer Kakashi.
+            Tape la bonne combinaison de touches clavier correspondant aux mudras
+            dans l'ordre exact.
+          </p>
+          
           <p className="mb-0">
             Kakashi a été enlevé. Traîné dans l’ombre par les ninjas d’Orochimaru. Une cellule... scellée par un jutsu interdit. Personne n’a pu l’approcher.
             Je suis devant la cellule de Kakashi et je crie, KATON ! BOOOOULE DE FEEEEU SUUUPRÊME !!!
@@ -110,6 +120,7 @@ function EgnimePrisonier({ onSuccess }: { onSuccess: () => void }) {
             className={`btn btn-dark mt-3 transition-table ${isClosing ? "fade-out" : "fade-in"}`}
             onClick={toggleTable}
           >
+            mundra invocations
             Indice invocations
           </button>
         </div>
