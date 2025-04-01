@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { quotes } from "../../data/quotes";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Quizz.css";
+import {Link} from "react-router-dom";
 
 export const Quizz = ({ onSuccess }: { onSuccess: () => void }) => {
   const getRandomIndex = (): number => Math.floor(Math.random() * quotes.length);
@@ -66,7 +67,13 @@ export const Quizz = ({ onSuccess }: { onSuccess: () => void }) => {
         </h1>
 
         {isCompleted ? (
-          <h3 className="text-success text-center">🎉 Défi réussi ! Tu es un vrai Shinobi !</h3>
+          <h3 className="text-success text-center">
+            <button type="button" className="btn btn-success" onClick={() => setIsCompleted(false)}>
+              <Link to="/final" className="text-decoration-none text-white">
+                🎉 Défi réussi ! Tu es un vrai Shinobi !
+              </Link>
+            </button>
+          </h3>
         ) : (
           <>
             <h4 className="mb-4 text-center">« {currentQuote.quote} »</h4>
