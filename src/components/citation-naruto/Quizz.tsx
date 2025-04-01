@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { quotes } from "../../data/quotes";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./Quizz.css"; // pour le style perso
+import "./Quizz.css";
 
-export const Quizz = () => {
+export const Quizz = ({ onSuccess }: { onSuccess: () => void }) => {
   const getRandomIndex = (): number => Math.floor(Math.random() * quotes.length);
 
   const [currentIndex, setCurrentIndex] = useState(getRandomIndex());
@@ -14,6 +14,15 @@ export const Quizz = () => {
   const [isCompleted, setIsCompleted] = useState(false);
 
   const currentQuote = quotes[currentIndex];
+
+  useEffect(() => {
+    if (isCompleted) {
+      const progression = JSON.parse(localStorage.getItem("progression") || "[true, false, false, false]");
+      progression[3] = true; // débloque l'étape suivante
+      localStorage.setItem("progression", JSON.stringify(progression));
+      onSuccess();
+    }
+  }, [isCompleted, onSuccess]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

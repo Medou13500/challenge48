@@ -1,28 +1,49 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import prisonImage from "../../assets/img/prison.png";
 
-function EgnimePrisonier() {
+function EgnimePrisonier({ onSuccess }: { onSuccess: () => void }) {
   const headerHeight = 64;
   const [showTable, setShowTable] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
+  const [isCompleted, setIsCompleted] = useState(false);
+  const [inputValue, setInputValue] = useState("");
+  const [result, setResult] = useState("");
+
+  const correctSequence = "➡️⬆️PA⬇️";
+
+  useEffect(() => {
+    if (isCompleted) {
+      const progression = JSON.parse(localStorage.getItem("progression") || "[true, false, false, false]");
+      progression[0] = true;
+      localStorage.setItem("progression", JSON.stringify(progression));
+      onSuccess();
+    }
+  }, [isCompleted, onSuccess]);
 
   const toggleTable = () => {
     if (showTable) {
-      setIsClosing(true); // Animation de fermeture
-
+      setIsClosing(true);
       setTimeout(() => {
-        setShowTable(false); // Cacher le tableau après animation
+        setShowTable(false);
         setIsClosing(false);
-      }, 300); // Durée de l’animation
+      }, 300);
     } else {
       setShowTable(true);
-
       setTimeout(() => {
         const tableSection = document.getElementById("invocations-table");
         if (tableSection) {
           tableSection.scrollIntoView({ behavior: "smooth" });
         }
       }, 100);
+    }
+  };
+
+  const handleValidate = () => {
+    if (inputValue.replace(/\s/g, "") === correctSequence) {
+      setResult("✅ Séquence correcte !");
+      setIsCompleted(true);
+    } else {
+      setResult("❌ Mauvaise séquence. Réessaye !");
     }
   };
 
@@ -47,20 +68,20 @@ function EgnimePrisonier() {
           backgroundRepeat: "no-repeat",
         }}
       >
-        {/* Overlay sombre */}
         <div
           className="position-absolute top-0 start-0 w-100 h-100"
           style={{ backgroundColor: "rgba(0, 0, 0, 0.6)", zIndex: 1 }}
         ></div>
 
-        {/* Contenu centré */}
         <div
           className="position-relative z-2 bg-white text-dark p-4 rounded shadow text-center"
           style={{ maxWidth: "500px" }}
         >
-          <p className="mb-0">Kakashi a été enlevé. Traîné dans l’ombre par les ninjas d’Orochimaru. Une cellule... scellée par un jutsu interdit. Personne n’a pu l’approcher.
-            je suis devant la cellule de Kakashi et je cri,
-            KATON ! BOOOOULE DE FEEEEU SUUUPRÊME !!! </p>
+          <p className="mb-0">
+            Kakashi a été enlevé. Traîné dans l’ombre par les ninjas d’Orochimaru. Une cellule... scellée par un jutsu interdit. Personne n’a pu l’approcher.
+            Je suis devant la cellule de Kakashi et je crie,
+            KATON ! BOOOOULE DE FEEEEU SUUUPRÊME !!!
+          </p>
           <button
             type="button"
             className={`btn btn-dark mt-3 transition-table ${
@@ -68,7 +89,7 @@ function EgnimePrisonier() {
             }`}
             onClick={toggleTable}
           >
-            indice invocations
+            Indice invocations
           </button>
         </div>
       </section>
@@ -111,6 +132,21 @@ function EgnimePrisonier() {
               </tr>
             </tbody>
           </table>
+
+          {/* Input et Validation */}
+          <div className="text-center mt-4">
+            <input
+              type="text"
+              className="form-control mb-2"
+              placeholder="Entre la séquence"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+            />
+            <button className="btn btn-danger" onClick={handleValidate}>
+              Valider la séquence
+            </button>
+            {result && <p className="mt-2 fw-bold">{result}</p>}
+          </div>
         </section>
       )}
     </div>
