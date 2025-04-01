@@ -1,19 +1,44 @@
-import './App.css'
-import {Route, BrowserRouter as Router, Routes} from "react-router-dom";
-import Egnime3D from "./components/egnimes-3d/Egnime3D.tsx";
-import EgnimePrisonier from './components/salle1_CellulePrisonnier/EgnimePrisonier.tsx';
+import {useState, useEffect} from "react";
+import {Routes, Route, BrowserRouter as Router} from "react-router-dom";
+import Accueil from "./Components/Accueil/accueil";
+import {Quizz} from "./Components/citation-naruto/Quizz";
+import DecryptMessage from "./Components/cryptographie/cryptographie";
+import CharacterQuiz from "./Components/blur-image/Blur";
+import EnigmePrisonier from "./Components/salle1_CellulePrisonnier/egnimePrisonier";
+import PageFinal from "./Components/final/Final.tsx";
 
 function App() {
-  return (
+    const defaultProgression = [true, false, false, false];
+    const [unlocked, setUnlocked] = useState(defaultProgression);
 
-    <Router>
-        <Routes>
-            <Route path="/egnime-3d" element={<Egnime3D/>}/>
-            <Route path="/Prisonier" element={<EgnimePrisonier/>}/>
+    useEffect(() => {
+        const saved = localStorage.getItem("progression");
+        if (saved) {
+            setUnlocked(JSON.parse(saved));
+        }
+    }, []);
 
-        </Routes>
-    </Router>
-  )
+    const handleUnlock = (index: number) => {
+        const newProgression = [...unlocked];
+        if (index + 1 < newProgression.length) {
+            newProgression[index + 1] = true;
+        }
+        setUnlocked(newProgression);
+        localStorage.setItem("progression", JSON.stringify(newProgression));
+    };
+
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<Accueil/>}/>
+                <Route path="/prisonnier" element={<EnigmePrisonier onSuccess={() => handleUnlock(0)}/>}/>
+                <Route path="/cryptographie" element={<DecryptMessage onSuccess={() => handleUnlock(1)}/>}/>
+                <Route path="/illusion" element={<CharacterQuiz onSuccess={() => handleUnlock(2)}/>}/>
+                <Route path="/citation" element={<Quizz onSuccess={() => handleUnlock(3)}/>}/>
+                <Route path="/final" element={<PageFinal/>}/>
+            </Routes>
+        </Router>
+    );
 }
 
 export default App
