@@ -6,16 +6,14 @@ import EgnimePrisonier from './components/salle1_CellulePrisonnier/egnimePrisoni
 
 function App() {
   return (
-
     <Router>
         <Routes>
             <Route path="/citation-naruto" element={<Quizz/>}/>
             <Route path="/egnime-3d" element={<Egnime3D/>}/>
             <Route path="/Prisonier" element={<EgnimePrisonier/>}/>
-
         </Routes>
     </Router>
   )
 }
 
-export default App
+export default App;
