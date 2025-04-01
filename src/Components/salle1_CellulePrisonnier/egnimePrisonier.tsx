@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import prisonImage from "../../assets/img/prison.png";
 import errorSound from "../../assets/sound/error.mp3";
 import fireballSound from "../../assets/sound/katonBoulefeu.mp3";
 import mudraSound from "../../assets/sound/justuNaruto.mp3";
 import katonGif from "../../assets/img/koton.gif";
 
-function EgnimePrisonier() {
+function EgnimePrisonier({ onSuccess }: { onSuccess: () => void }) {
   const headerHeight = 64;
   const [showTable, setShowTable] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
@@ -24,6 +23,20 @@ function EgnimePrisonier() {
     audio.currentTime = 0;
     audio.play();
   };
+  const [isCompleted, setIsCompleted] = useState(false);
+  const [inputValue, setInputValue] = useState("");
+  const [result, setResult] = useState("");
+
+  const correctSequence = "➡️⬆️PA⬇️";
+
+  useEffect(() => {
+    if (isCompleted) {
+      const progression = JSON.parse(localStorage.getItem("progression") || "[true, false, false, false]");
+      progression[0] = true;
+      localStorage.setItem("progression", JSON.stringify(progression));
+      onSuccess();
+    }
+  }, [isCompleted, onSuccess]);
 
   const toggleTable = () => {
     if (showTable) {
@@ -83,6 +96,14 @@ function EgnimePrisonier() {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
+  const handleValidate = () => {
+    if (inputValue.replace(/\s/g, "") === correctSequence) {
+      setResult("✅ Séquence correcte !");
+      setIsCompleted(true);
+    } else {
+      setResult("❌ Mauvaise séquence. Réessaye !");
+    }
+  };
 
   return (
     <div className={`text-white ${isShaking ? "shake" : ""}`}>
@@ -122,12 +143,18 @@ function EgnimePrisonier() {
             dans l'ordre exact.
           </p>
           
+          <p className="mb-0">
+            Kakashi a été enlevé. Traîné dans l’ombre par les ninjas d’Orochimaru. Une cellule... scellée par un jutsu interdit. Personne n’a pu l’approcher.
+            Je suis devant la cellule de Kakashi et je crie,
+            KATON ! BOOOOULE DE FEEEEU SUUUPRÊME !!!
+          </p>
           <button
             type="button"
             className="btn btn-dark mt-3"
             onClick={toggleTable}
           >
             mundra invocations
+            Indice invocations
           </button>
         </div>
       </section>
@@ -156,6 +183,21 @@ function EgnimePrisonier() {
               </tr>
             </tbody>
           </table>
+
+          {/* Input et Validation */}
+          <div className="text-center mt-4">
+            <input
+              type="text"
+              className="form-control mb-2"
+              placeholder="Entre la séquence"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+            />
+            <button className="btn btn-danger" onClick={handleValidate}>
+              Valider la séquence
+            </button>
+            {result && <p className="mt-2 fw-bold">{result}</p>}
+          </div>
         </section>
       )}
 

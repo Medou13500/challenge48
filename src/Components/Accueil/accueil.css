@@ -1,0 +1,30 @@
+.nav-links {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .link-active {
+    color: #FF4C4C;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    border: 2px solid #FF4C4C;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .link-active:hover {
+    background-color: rgba(255, 76, 76, 0.2);
+    transform: scale(1.05);
+  }
+  
+  .link-disabled {
+    color: gray;
+    text-decoration: none;
+    padding: 8px 12px;
+    border: 2px solid gray;
+    border-radius: 8px;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+  
