@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import prisonImage from "../../assets/img/prison.png";
 import errorSound from "../../assets/sound/error.mp3";
-import triggerSound from "../../assets/sound/sonsJutsu.mp3";
 import fireballSound from "../../assets/sound/katonBoulefeu.mp3";
 import mudraSound from "../../assets/sound/justuNaruto.mp3";
 import katonGif from "../../assets/img/koton.gif";
@@ -128,7 +127,7 @@ function EgnimePrisonier() {
             className="btn btn-dark mt-3"
             onClick={toggleTable}
           >
-            indice invocations
+            mundra invocations
           </button>
         </div>
       </section>
