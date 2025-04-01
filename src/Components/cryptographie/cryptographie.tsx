@@ -246,7 +246,7 @@ export default function DecryptMessage() {
                                             }}
                                         >
                                             <i className="bi bi-arrow-repeat me-2"></i>
-                                            <Link to="/blur" className="text-decoration-none text-white" style={{textShadow: '2px 2px 4px #000'}}>
+                                            <Link to="/illusion" className="text-decoration-none text-white" style={{textShadow: '2px 2px 4px #000'}}>
                                                 Salle suivante
                                             </Link>
                                         </button>
