@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { images } from "../../data/image";
-import logoAkatsuki from "../../assets/img/akastuki.png";
+import logoAkatsuki from "../../assets/img/logo-akatsuki.png";
 import styled from "styled-components";
 
 const NarutoContainer = styled.div`
